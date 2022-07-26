@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 filename = sys.argv[1]
-filename = filename[0:len(filename) - 3]
 df = pd.read_csv(filename)
+filename = filename[0:len(filename) - 3]
 p1 = sns.pairplot(df, kind = 'reg', diag_kind = 'kde', hue = "location", plot_kws={'scatter_kws': {'alpha': 0.1}})
 (xmin, _), (_, ymax) = p1.axes[0, 0].get_position().get_points()
 (_, ymin), (xmax, _) = p1.axes[-1, -1].get_position().get_points()
