@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.decomposition import PCA
 filename = sys.argv[1]
 df = pd.read_csv(filename)
-filename = filename[0:len(filename)]
+filename = filename[0:len(filename) - 3]
 df1 = df.select_dtypes(include = 'object')
 df = df.select_dtypes(exclude = 'object')
 df = df.dropna()
