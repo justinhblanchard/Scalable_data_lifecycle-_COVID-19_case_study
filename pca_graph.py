@@ -21,6 +21,7 @@ vals = np.arange(pca.n_components_) + 1
 df1.to_csv(filename + 'pca.csv', index = False)
 sns.scatterplot(data = df1, x = pca.explained_variance_ratio_[0], y = pca.explained_variance_ratio_[1], hue = 'location', alpha = 0.3)
 c = np.transpose(pca.components_[0:2, :])
+print(c)
 for i in range(c.shape[0]):
     plt.arrow(0, 0, c[i, 0] * 3, c[i, 1] * 3)
     plt.text(c[i,0] * 3.1, c[i,1] * 3.1, i + 1, alpha = 0.5)

@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 filename = sys.argv[1]
 df = pd.read_csv(filename)
 filename = filename[0:len(filename) - 3]
-p1 = sns.pairplot(df, kind = 'reg', diag_kind = 'kde', hue = "location", plot_kws={'scatter_kws': {'alpha': 0.1}})
+#kind = 'reg'  plot_kws={'line_kws':{'color':'red'}, 'scatter_kws': {'alpha': 0.1}}
+p1 = sns.pairplot(df, diag_kind = 'kde', hue = "location")
 (xmin, _), (_, ymax) = p1.axes[0, 0].get_position().get_points()
 (_, ymin), (xmax, _) = p1.axes[-1, -1].get_position().get_points()
 ax = p1.fig.add_axes([xmin, ymin, xmax - xmin, ymax - ymin], facecolor = 'none')
