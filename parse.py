@@ -2,11 +2,14 @@ import sys
 import os
 import wget
 import pandas as pd
+#downloads the file
 response = wget.download(sys.argv[1])
+#reads the file
 if response.endswith('.csv'):
     df = pd.read_csv(response)
 else:
     df = pd.read_excel(response)
+#preprocessing
 df = df.drop_duplicates()
 df = df.dropna(how = 'all', axis = 1)
 df1 = df.select_dtypes(include = 'object')
