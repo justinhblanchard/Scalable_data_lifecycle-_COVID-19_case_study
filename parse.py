@@ -12,9 +12,12 @@ else:
 #preprocessing
 df = df.drop_duplicates()
 df = df.dropna(how = 'all', axis = 1)
+df = df.drop('MMWR Year', axis=1)
+df = df.drop('MMWR Week', axis=1)
 df1 = df.select_dtypes(include = 'object')
 for i in df1.columns:
-    if i != 'state' and i != 'State' and i != 'states' and i != 'States' and i != 'country' and i != 'Country' and i != 'countries' and i != 'Countries' and i != 'Jurisdiction of Occurrence':
+    #filtering by a column name
+    if i != 'Jurisdiction of Occurrence':
         df1 = df1.drop(i, axis = 1)
 df = df.select_dtypes(exclude = 'object')
 df = pd.concat([df1, df], axis = 1)

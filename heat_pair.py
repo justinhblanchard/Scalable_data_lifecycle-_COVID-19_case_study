@@ -8,8 +8,8 @@ filename = sys.argv[1]
 df = pd.read_csv(filename)
 filename = filename[0:len(filename) - 3]
 #add this line if you want regressions for the pair plot
-#p1 = sns.pairplot(df, kind = 'reg', diag_kind = 'kde', hue = 'location', plot_kws={'line_kws':{'color':'red'}, 'scatter_kws': {'alpha': 0.1}}
-p1 = sns.pairplot(df, diag_kind = 'kde', hue = "location")
+p1 = sns.pairplot(df, kind = 'reg', diag_kind = 'kde', hue = 'location', plot_kws={'line_kws':{'color':'red'}, 'scatter_kws': {'alpha': 0.8}})
+#p1 = sns.pairplot(df, diag_kind = 'kde', hue = "location")
 #creating the combination plot
 (xmin, _), (_, ymax) = p1.axes[0, 0].get_position().get_points()
 (_, ymin), (xmax, _) = p1.axes[-1, -1].get_position().get_points()
